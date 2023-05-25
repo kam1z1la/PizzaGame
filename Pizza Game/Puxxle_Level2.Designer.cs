@@ -60,6 +60,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.Points = new System.Windows.Forms.Label();
+            this.BeastMusic = new Pizza_Game.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -414,6 +415,17 @@
             this.Points.TabIndex = 58;
             this.Points.Text = "2000";
             // 
+            // BeastMusic
+            // 
+            this.BeastMusic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BeastMusic.BackgroundImage")));
+            this.BeastMusic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BeastMusic.Location = new System.Drawing.Point(705, 305);
+            this.BeastMusic.Name = "BeastMusic";
+            this.BeastMusic.Size = new System.Drawing.Size(132, 120);
+            this.BeastMusic.TabIndex = 59;
+            this.BeastMusic.UseVisualStyleBackColor = true;
+            this.BeastMusic.Click += new System.EventHandler(this.BeastMusic_Click);
+            // 
             // Puxxle_Level2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,6 +433,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(861, 479);
+            this.Controls.Add(this.BeastMusic);
             this.Controls.Add(this.Points);
             this.Controls.Add(this.pictureBox26);
             this.Controls.Add(this.pictureBox24);
@@ -515,5 +528,6 @@
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.Label Points;
+        private RoundButton BeastMusic;
     }
 }

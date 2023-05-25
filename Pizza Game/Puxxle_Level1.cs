@@ -150,16 +150,16 @@ namespace Pizza_Game
 
         private void BeastMusic_Click(object sender, EventArgs e)
         {
-            //if (!data.isPlaying)
-            //{
-            //    data.player.Play();
-            //    data.isPlaying = true;
-            //}
-            //else
-            //{
-            //    data.player.Stop();
-            //    data.isPlaying = false;
-            //}
+            if (!Data.isPlaying)
+            {
+                Data.player.Play();
+                Data.isPlaying = true;
+            }
+            else
+            {
+                Data.player.Stop();
+                Data.isPlaying = false;
+            }
         }
 
         private void endGameInRhisLvl(Form form, bool isWin)

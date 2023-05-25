@@ -186,5 +186,19 @@ namespace Pizza_Game
                 timer1.Enabled = true;
             };
         }
+
+        private void BeastMusic_Click(object sender, EventArgs e)
+        {
+            if (!Data.isPlaying)
+            {
+                Data.player.Play();
+                Data.isPlaying = true;
+            }
+            else
+            {
+                Data.player.Stop();
+                Data.isPlaying = false;
+            }
+        }
     }
 }

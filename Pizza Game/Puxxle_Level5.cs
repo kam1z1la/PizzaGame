@@ -235,5 +235,19 @@ namespace Pizza_Game
             Console.WriteLine("[INFO] Number of images in picture list when program end: {0}.", Data.listPicture.Count);
             totalSource.Show(); this.Hide();
         }
+
+        private void BeastMusic_Click(object sender, EventArgs e)
+        {
+            if (!Data.isPlaying)
+            {
+                Data.player.Play();
+                Data.isPlaying = true;
+            }
+            else
+            {
+                Data.player.Stop();
+                Data.isPlaying = false;
+            }
+        }
     }
 }

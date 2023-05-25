@@ -60,6 +60,7 @@
             this.pictureBox23 = new System.Windows.Forms.PictureBox();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.BeastMusic = new Pizza_Game.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -415,6 +416,17 @@
             this.pictureBox26.TabStop = false;
             this.pictureBox26.Tag = "6";
             // 
+            // BeastMusic
+            // 
+            this.BeastMusic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BeastMusic.BackgroundImage")));
+            this.BeastMusic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BeastMusic.Location = new System.Drawing.Point(705, 298);
+            this.BeastMusic.Name = "BeastMusic";
+            this.BeastMusic.Size = new System.Drawing.Size(132, 120);
+            this.BeastMusic.TabIndex = 60;
+            this.BeastMusic.UseVisualStyleBackColor = true;
+            this.BeastMusic.Click += new System.EventHandler(this.BeastMusic_Click);
+            // 
             // Puxxle_Level3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,6 +434,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(861, 479);
+            this.Controls.Add(this.BeastMusic);
             this.Controls.Add(this.pictureBox26);
             this.Controls.Add(this.pictureBox24);
             this.Controls.Add(this.pictureBox23);
@@ -516,5 +529,6 @@
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox24;
         private System.Windows.Forms.PictureBox pictureBox26;
+        private RoundButton BeastMusic;
     }
 }
