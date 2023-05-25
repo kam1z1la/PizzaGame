@@ -40,9 +40,7 @@ namespace Pizza_Game
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            Data data = new Data();
-            Data.player = new SoundPlayer(@"C:\Users\piban\source\repos\Pizza Game\Pizza Game\Turbo Tunnel Race.wav");
-            Data.player.Play();
+            Data data = new Data();       
         }
     }
 }
