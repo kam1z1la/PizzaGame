@@ -103,8 +103,10 @@
             this.Controls.Add(this.Head);
             this.Controls.Add(this.ImportantQuestion);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Question";
             this.Text = "Question";
+            this.Load += new System.EventHandler(this.Question_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

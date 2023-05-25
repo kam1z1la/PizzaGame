@@ -384,7 +384,7 @@
             this.pictureBox24.Location = new System.Drawing.Point(35, 114);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(109, 132);
-            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox24.TabIndex = 18;
             this.pictureBox24.TabStop = false;
             this.pictureBox24.Tag = "1";
@@ -494,6 +494,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Puxxle_Level1";
             this.Tag = "0";
             this.Text = "Puxxle_Level1";
@@ -534,7 +535,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
@@ -553,12 +553,13 @@
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox24;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox25;
-        private System.Windows.Forms.Timer timer2;
         public System.Windows.Forms.Label Points;
         public System.Windows.Forms.Label Time;
         public System.Windows.Forms.Label ExtraLife;
         private RoundButton BeastMusic;
+        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.PictureBox pictureBox6;
+        public System.Windows.Forms.Timer timer2;
     }
 }

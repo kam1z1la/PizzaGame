@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pizza_Game
@@ -13,6 +6,8 @@ namespace Pizza_Game
     public partial class Question : Form
     {
         private static Form form;
+        private Picture picture = new Picture();
+
         public Question(Form lvl)
         {
             InitializeComponent();
@@ -28,8 +23,13 @@ namespace Pizza_Game
         private void button1_Click(object sender, EventArgs e)
         {
             DataUI.EXTRA_LIFE = 0;
-            new Picture().scatterPicturesInTheForm(form);
+            picture.scatterPicturesInTheForm(form);
             form.Show(); this.Hide();
+        }
+
+        private void Question_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

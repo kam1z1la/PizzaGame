@@ -53,6 +53,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(930, 477);
             this.Controls.Add(this.BackBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Info";
             this.Text = "Info";
             this.Load += new System.EventHandler(this.Info_Load);

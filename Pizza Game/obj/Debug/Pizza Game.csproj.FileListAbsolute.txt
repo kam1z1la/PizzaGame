@@ -28,3 +28,7 @@ C:\Users\piban\source\repos\Pizza Game\Pizza Game\bin\Debug\NAudio.xml
 C:\Users\piban\source\repos\Pizza Game\Pizza Game\bin\Debug\System.Security.AccessControl.xml
 C:\Users\piban\source\repos\Pizza Game\Pizza Game\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza Game.csproj.CopyComplete
+C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza_Game.Puxxle_Level2.resources
+C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza_Game.Puxxle_Level3.resources
+C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza_Game.Puxxle_Level4.resources
+C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza_Game.Puxxle_Level5.resources

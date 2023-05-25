@@ -11,7 +11,7 @@ namespace Pizza_Game
         {
              foreach(PictureBox pb in pictureBox)
              {
-                await Task.Delay(100);
+                await Task.Delay(50);
                 listPicture.Add(pb);
              }          
         }

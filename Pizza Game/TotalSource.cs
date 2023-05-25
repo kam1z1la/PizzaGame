@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 
 namespace Pizza_Game
@@ -7,6 +6,9 @@ namespace Pizza_Game
     public partial class TotalSource : Form
     {
         private Form formLvl;
+        private Form nextFormLvl;
+        private Picture picture = new Picture();
+
         public TotalSource()
         {
             InitializeComponent();
@@ -15,22 +17,22 @@ namespace Pizza_Game
         private void BackBtn_Click(object sender, EventArgs e)
         {
             if (DataUI.EXTRA_LIFE == 1)
-            {
+            {               
                 Question question = new Question(formLvl);
                 question.Show(); this.Hide();
             }
             else
             {
-              Menu menu = new Menu();
-              menu.Show(); this.Hide();
+               Menu menu = new Menu();
+               menu.Show(); this.Hide();
             }          
         }
 
         public void getInfo(bool isWin, string life, string time, string point)
         {                            
-            this.Life.Text = life;
+            Life.Text = life;
             Time.Text = getElapsedTime(time);
-            this.Point.Text = point;
+            Point.Text = point;
             if (isWin == true)
             {
               Head.Text = "Вітаємо, ви перемогли!";
@@ -57,6 +59,23 @@ namespace Pizza_Game
         public void getForm(Form form)
         {
             formLvl = form;
-        }   
+        }
+
+        public void getNextForm(Form form)
+        {
+            Console.WriteLine("[INFO] umber of images in listPicture: {0}.", Data.listPicture.Count);
+            nextFormLvl = form;
+        }
+
+        private void NextBtn_Click(object sender, EventArgs e)
+        {
+            picture.scatterPicturesInTheForm(nextFormLvl);
+            nextFormLvl.Show(); this.Hide();
+        }
+
+        private void TotalSource_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

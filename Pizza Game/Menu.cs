@@ -6,16 +6,12 @@ namespace Pizza_Game
 {
     public partial class Menu : Form
     {
-        private static Picture shuffle = new Picture();
-        public static DataUI UI = new DataUI();
-        Data data = new Data();
-
-
-
         public Menu()
         {
             InitializeComponent();
-            data.player.Play();
+            Data data = new Data(); 
+            Data.player = new SoundPlayer(@"C:\Users\piban\source\repos\Pizza Game\Pizza Game\Turbo Tunnel Race.wav");
+            Data.player.Play();
         }
 
         private void InfoBtn_Click_1(object sender, EventArgs e)
@@ -26,23 +22,28 @@ namespace Pizza_Game
 
         private void PlayBtn_Click(object sender, EventArgs e)
         {
-            Puxxle_Level1 lvl_1 = new Puxxle_Level1(UI);
-            shuffle.scatterPicturesInTheForm(lvl_1);
+            Puxxle_Level1 lvl_1 = new Puxxle_Level1(new DataUI());
+            new Picture().scatterPicturesInTheForm(lvl_1);
             lvl_1.Show(); this.Hide();
         }
 
         private void BeastMusic_Click(object sender, EventArgs e)
         {
-            if (!data.isPlaying)
+            if (!Data.isPlaying)
             {
-                data.player.Play();
-                data.isPlaying = true;
+                Data.player.Play();
+                Data.isPlaying = true;
             }
             else
             {
-                data.player.Stop();
-                data.isPlaying = false;
+                Data.player.Stop();
+                Data.isPlaying = false;
             }
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

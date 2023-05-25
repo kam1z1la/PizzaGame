@@ -123,6 +123,7 @@
             this.NextBtn.Size = new System.Drawing.Size(109, 98);
             this.NextBtn.TabIndex = 4;
             this.NextBtn.UseVisualStyleBackColor = false;
+            this.NextBtn.Click += new System.EventHandler(this.NextBtn_Click);
             // 
             // BackBtn
             // 
@@ -155,8 +156,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CountTime);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TotalSource";
             this.Text = "TotalSource";
+            this.Load += new System.EventHandler(this.TotalSource_Load);
             this.ResumeLayout(false);
 
         }

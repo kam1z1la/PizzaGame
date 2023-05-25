@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Drawing;
-using System.Media;
 using System.Windows.Forms;
 
 namespace Pizza_Game
 {
     public partial class Puxxle_Level1 : Form, Direction
     {
-        private static Path win = new Path();
-        Picture shuffle = new Picture();
-        Data data = new Data();
-        DataUI dataUI;
-        TotalSource totalSource = new TotalSource();
+        private Picture shuffle = new Picture();
+        private Path win = new Path();
+        private PictureBox courier;     
+        private DataUI dataUI;
 
         private async void Puxxle_Level1_Load(object sender, EventArgs e)
         {
-            await win.createRoadAsync(data.road,  pictureBox6, pictureBox5, pictureBox4, pictureBox3, pictureBox2,
+            await win.createRoadAsync(Data.road,  pictureBox6, pictureBox5, pictureBox4, pictureBox3, pictureBox2,
             pictureBox23, pictureBox22, pictureBox21, pictureBox20, pictureBox19, pictureBox24);
-            Console.WriteLine("Loaded {0} photos into the ArrayList. From class Win", data.road.Count);
-            data.courier = pictureBox25;
+            Console.WriteLine("[INFO] Number of images in road asunc list: {0}.", Data.road.Count);
+            courier = Data.courier;
+            courier = pictureBox25;
             timer2.Enabled = true;
         }
 
@@ -33,93 +32,80 @@ namespace Pizza_Game
             PictureBox pictureBox = sender as PictureBox;
             int index = Convert.ToInt32(pictureBox.Tag);
 
-            if (pictureBox != null)
+            if (pictureBox != null && pictureBox.Image != null)
             {
                 pictureBox.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 pictureBox.Invalidate();
                 shuffle.switchTag(pictureBox, index, pictureBox2, pictureBox23);
-                Console.WriteLine("PictureBox {0} has Tag {1}.", pictureBox.Name, pictureBox.Tag);
             }
 
-            data.isCanMove = win.isThePathCorrect(data.road);
-            if (data.isCanMove == true)
+            Data.isCanMove = win.isThePathCorrect(Data.road);
+            if (Data.isCanMove == true)
             {
                 timer1.Enabled = true;
             };
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void timer1_Tick(object sender, EventArgs e)
         {         
-            int cx = data.courier.Location.X;
-            int cy = data.courier.Location.Y;
-            
-
-            Console.WriteLine("cx {0} cy {1}", cx, cy);
-            foreach (var picture in data.road)
+            int cx = courier.Location.X;
+            int cy = courier.Location.Y;      
+          
+            foreach (var picture in Data.road)
             {
                 int direction = 0;
                 int centerX = (picture.Location.X + (picture.Width / 2) - 30);
-                int dis =  picture.Location.Y + (picture.Height / 2) - data.courier.Location.Y;
-                Console.WriteLine("dis {0}", dis);
-
+                int dis =  picture.Location.Y + (picture.Height / 2) - courier.Location.Y;
                 int centerY = picture.Location.Y + (picture.Height / 2);
-                Console.WriteLine("centerX {0} centerY {1}", centerX, centerY);
-                Rectangle courierBounds1 = new Rectangle(data.courier.Location, data.courier.Size);
+                Console.WriteLine("picture cwnter x;y:\n {0};{1}", centerX, centerY);
+                Rectangle courierBounds1 = new Rectangle(courier.Location, courier.Size);
 
-
-                while (Math.Abs(data.courier.Location.X - centerX) > 9 
-                || Math.Abs(data.courier.Location.Y - centerY) > 20)
+                while (Math.Abs(courier.Location.X - centerX) > 9 
+                || Math.Abs(courier.Location.Y - centerY) > 20)
                 {                  
                     if (dis < 100)
                     {
-                        if (data.courier.Location.X < centerX)
+                        if (courier.Location.X < centerX)
                         {
-                            cx += 10;
+                            cx += 20;
                             direction = 0;
                         }
                         else
                         {
-                            cx -= 10;
+                            cx -= 20;
                             direction = 1;
                             
                         }
                     }
                     else
                     {
-                        if (data.courier.Location.Y < centerY)
+                        if (courier.Location.Y < centerY)
                         {
-                            cy += 10;
+                            cy += 20;
                             direction = 3;
                         }
                         else
                         {
-                            cy -= 10;
+                            cy -= 20;
                             direction = 2;
                         }
                     }
 
-                    data.courier.Location = new Point(cx, cy);
+                    courier.Location = new Point(cx, cy);
                     this.Refresh();
-
-                    setDirection(direction, data.courier);
-                    Console.WriteLine("switchTag {0}", data.courier.Tag);
-
-
-                    Console.WriteLine("cx {0} cy {1}", cx, cy);
+                    setDirection(direction, courier);
+                    
+                    Console.WriteLine("courier x;y:\n {0};{1}", cx, cy);
                     System.Threading.Thread.Sleep(200);
                 }
                 this.Refresh();
             }
-            dataUI.isWin = true;
-            timer1.Enabled = false;
-            timer2.Enabled = false;
-            data.isCanMove = false;
-            totalSource.getForm(new Puxxle_Level1(dataUI));
-            totalSource.getInfo(dataUI.isWin, ExtraLife.Text, Time.Text, Points.Text);
-            totalSource.Show(); this.Hide();
+            Data.isCanMove = false;
+            endGameInRhisLvl(new Puxxle_Level1(dataUI), true);
+            this.Refresh();
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        public void timer2_Tick(object sender, EventArgs e)
         {
             dataUI.setParse(ExtraLife, Time, Points);
       
@@ -132,13 +118,9 @@ namespace Pizza_Game
                 dataUI.points -= 10;
                 Points.Text = dataUI.points.ToString();
             } else
-            {
-                dataUI.isWin = false;
-                timer1.Enabled = false;
-                timer2.Enabled = false;
-                totalSource.getForm(new Puxxle_Level1(dataUI));
-                totalSource.getInfo(dataUI.isWin, ExtraLife.Text, Time.Text, Points.Text);
-                totalSource.Show(); this.Hide();
+            {                   
+                endGameInRhisLvl(new Puxxle_Level1(dataUI), false);
+                this.Refresh();
             }
         }
 
@@ -163,20 +145,37 @@ namespace Pizza_Game
                     }
                     break; 
             }
+            Console.WriteLine("Tag switch to {0}", courier.Tag);
         }
 
         private void BeastMusic_Click(object sender, EventArgs e)
         {
-            if (!data.isPlaying)
-            {
-                data.player.Play();
-                data.isPlaying = true;
-            }
-            else
-            {
-                data.player.Stop();
-                data.isPlaying = false;
-            }
+            //if (!data.isPlaying)
+            //{
+            //    data.player.Play();
+            //    data.isPlaying = true;
+            //}
+            //else
+            //{
+            //    data.player.Stop();
+            //    data.isPlaying = false;
+            //}
+        }
+
+        private void endGameInRhisLvl(Form form, bool isWin)
+        {
+            TotalSource totalSource = new TotalSource();
+            dataUI.isWin = isWin;
+            timer1.Enabled = false;
+            timer2.Enabled = false;
+            totalSource.getForm(form);
+            totalSource.getNextForm(new Puxxle_Level2(dataUI));
+            totalSource.getInfo(dataUI.isWin, ExtraLife.Text, Time.Text, Points.Text);
+            shuffle.freeingMemoryFromPictures(Data.road);
+            Console.WriteLine("[INFO] Number of images in road list when program end: {0}.", Data.road.Count);
+            shuffle.freeingMemoryFromPictures(Data.listPicture);
+            Console.WriteLine("[INFO] Number of images in picture list when program end: {0}.", Data.listPicture.Count);
+            totalSource.Show(); this.Hide();
         }
     }
 }   
