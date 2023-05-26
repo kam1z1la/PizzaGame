@@ -32,3 +32,4 @@ C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza_Game.Puxxle_Le
 C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza_Game.Puxxle_Level3.resources
 C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza_Game.Puxxle_Level4.resources
 C:\Users\piban\source\repos\Pizza Game\Pizza Game\obj\Debug\Pizza_Game.Puxxle_Level5.resources
+C:\Users\piban\source\repos\Pizza Game\Pizza Game\bin\Debug\skogenspelfont.ttf

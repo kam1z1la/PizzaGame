@@ -25,6 +25,9 @@ namespace Pizza_Game
             courier = pictureBox26;
             courier.Tag = 6;
             timer2.Enabled = true;
+            ExtraLife.Font = DataUI.GetCustomFont(18);
+            Time.Font = DataUI.GetCustomFont(18);
+            Points.Font = DataUI.GetCustomFont(18);
         }
 
         public void setDirection(int index, PictureBox courier)

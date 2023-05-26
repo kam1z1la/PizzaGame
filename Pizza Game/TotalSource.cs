@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace Pizza_Game
@@ -71,6 +72,17 @@ namespace Pizza_Game
         {
             picture.scatterPicturesInTheForm(nextFormLvl);
             nextFormLvl.Show(); this.Hide();
+        }
+
+        private void TotalSource_Load(object sender, EventArgs e)
+        {
+            Head.Font = DataUI.GetCustomFont(27);
+            label1.Font = DataUI.GetCustomFont(27);
+            label2.Font = DataUI.GetCustomFont(27);
+            CountTime.Font = DataUI.GetCustomFont(27);
+            Life.Font = DataUI.GetCustomFont(20);
+            Point.Font = DataUI.GetCustomFont(20);
+            Time.Font = DataUI.GetCustomFont(20);
         }
     }
 }

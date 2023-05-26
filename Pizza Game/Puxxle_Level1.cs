@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace Pizza_Game
@@ -18,6 +20,9 @@ namespace Pizza_Game
             courier = Data.courier;
             courier = pictureBox25;
             timer2.Enabled = true;
+            ExtraLife.Font = DataUI.GetCustomFont(18);
+            Time.Font = DataUI.GetCustomFont(18);
+            Points.Font = DataUI.GetCustomFont(18);
         }
 
         public Puxxle_Level1(DataUI ui)

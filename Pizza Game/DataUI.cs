@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing.Text;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Pizza_Game
 {
@@ -24,6 +26,14 @@ namespace Pizza_Game
             minute = int.Parse(timeArray[0]);
             second = int.Parse(timeArray[1]);
             totalSeconds = (minute * 60) + second;
+        }
+
+        public static Font GetCustomFont(float fontSize)
+        {
+            PrivateFontCollection fontCollection = new PrivateFontCollection();
+            fontCollection.AddFontFile("skogenspelfont.ttf"); 
+            FontFamily family = fontCollection.Families[0];
+            return new Font(family, fontSize);
         }
     }
 }
