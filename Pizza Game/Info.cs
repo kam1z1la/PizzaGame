@@ -15,10 +15,5 @@ namespace Pizza_Game
             Menu info = new Menu();
             info.Show(); this.Hide();
         }
-
-        private void Info_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

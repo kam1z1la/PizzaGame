@@ -73,7 +73,7 @@ namespace Pizza_Game
                 .ToList();
         }
 
-        public void сlearImages(List<KeyValuePair<string, Bitmap>> images)
+        private void сlearImages(List<KeyValuePair<string, Bitmap>> images)
         {
             foreach (var image in images)
             {

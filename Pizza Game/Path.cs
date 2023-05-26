@@ -7,7 +7,7 @@ namespace Pizza_Game
 {
     internal class Path 
     {
-        public async Task createRoadAsync(List<PictureBox> listPicture, params object[] pictureBox)
+        public static async Task createRoadAsync(List<PictureBox> listPicture, params object[] pictureBox)
         {
              foreach(PictureBox pb in pictureBox)
              {
@@ -16,7 +16,7 @@ namespace Pizza_Game
              }          
         }
 
-        public bool isThePathCorrect(List<PictureBox> listPicture)
+        public static bool isThePathCorrect(List<PictureBox> listPicture)
         {           
             foreach (PictureBox picture in listPicture)
             {

@@ -159,7 +159,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TotalSource";
             this.Text = "TotalSource";
-            this.Load += new System.EventHandler(this.TotalSource_Load);
             this.ResumeLayout(false);
 
         }

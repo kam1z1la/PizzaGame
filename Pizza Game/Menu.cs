@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Media;
 using System.Windows.Forms;
 
 namespace Pizza_Game
@@ -40,7 +39,7 @@ namespace Pizza_Game
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            Data data = new Data();       
+            new Data();       
         }
     }
 }

@@ -72,10 +72,5 @@ namespace Pizza_Game
             picture.scatterPicturesInTheForm(nextFormLvl);
             nextFormLvl.Show(); this.Hide();
         }
-
-        private void TotalSource_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

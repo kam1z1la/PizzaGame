@@ -56,7 +56,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Info";
             this.Text = "Info";
-            this.Load += new System.EventHandler(this.Info_Load);
             this.ResumeLayout(false);
 
         }

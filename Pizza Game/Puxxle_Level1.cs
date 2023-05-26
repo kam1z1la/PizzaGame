@@ -7,13 +7,12 @@ namespace Pizza_Game
     public partial class Puxxle_Level1 : Form, Direction
     {
         private Picture shuffle = new Picture();
-        private Path win = new Path();
         private PictureBox courier;     
         private DataUI dataUI;
 
         private async void Puxxle_Level1_Load(object sender, EventArgs e)
         {
-            await win.createRoadAsync(Data.road,  pictureBox6, pictureBox5, pictureBox4, pictureBox3, pictureBox2,
+            await Path.createRoadAsync(Data.road,  pictureBox6, pictureBox5, pictureBox4, pictureBox3, pictureBox2,
             pictureBox23, pictureBox22, pictureBox21, pictureBox20, pictureBox19, pictureBox24);
             Console.WriteLine("[INFO] Number of images in road asunc list: {0}.", Data.road.Count);
             courier = Data.courier;
@@ -39,7 +38,7 @@ namespace Pizza_Game
                 shuffle.switchTag(pictureBox, index, pictureBox2, pictureBox23);
             }
 
-            Data.isCanMove = win.isThePathCorrect(Data.road);
+            Data.isCanMove = Path.isThePathCorrect(Data.road);
             if (Data.isCanMove == true)
             {
                 timer1.Enabled = true;

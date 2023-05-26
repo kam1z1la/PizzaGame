@@ -14,10 +14,12 @@ namespace Pizza_Game
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        { //@"C:\Users\piban\source\repos\Pizza Game\Pizza Game\Turbo Tunnel Race.wav"
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Data.player = new SoundPlayer(@"C:\Users\piban\source\repos\Pizza Game\Pizza Game\Turbo Tunnel Race.wav");
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.IO.Stream resourceStream =  assembly.GetManifestResourceStream(@"Pizza_Game.Turbo Tunnel Race.wav");
+            Data.player = new SoundPlayer(resourceStream);
             Data.player.Play();
             Application.Run(new Menu());
         }
